@@ -82,11 +82,16 @@
                         </div>
 
                         <div class="md:col-span-2">
-                            <label for="lokasi" class="block text-sm font-bold text-slate-600 mb-2 ml-1">Lokasi
-                                Kerja</label>
-                            <input type="text" id="lokasi" name="lokasi" required
-                                placeholder="Contoh: Factory, Est 1.2.3"
-                                class="w-full px-4 md:px-5 py-3 md:py-3.5 rounded-xl md:rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-500/10 outline-none input-field">
+                            <label for="lokasi" class="block text-sm font-bold text-slate-600 mb-2 ml-1">Lokasi</label>
+                            <select id="lokasi" name="lokasi" required
+                                class="w-full px-4 md:px-5 py-3 md:py-3.5 rounded-xl md:rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-500/10 outline-none input-field appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:20px] bg-[right_1.25rem_center] bg-no-repeat">
+                                <option value="">Pilih Lokasi...</option>
+                                <option value="Central">Central</option>
+                                <option value="Factory">Factory</option>
+                                <option value="Estate 1">Estate 1</option>
+                                <option value="Estate 2">Estate 2</option>
+                                <option value="Estate 3">Estate 3</option>
+                            </select>
                         </div>
                     </div>
                 </div>
