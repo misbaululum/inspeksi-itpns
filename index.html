@@ -33,8 +33,37 @@
             style="animation-delay: 0.1s;">
             <form id="verificationForm" class="space-y-8 md:space-y-12">
 
-                <!-- Section 1: Data Verifikasi -->
+                <!-- Section 0: Jenis Laporan -->
                 <div class="section-card rounded-2xl md:rounded-3xl p-5 md:p-8">
+                    <div class="flex items-center mb-6 md:mb-8">
+                        <div
+                            class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-amber-500 flex items-center justify-center text-white mr-3 md:mr-4 shadow-lg shadow-amber-200">
+                            <svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-3 7h3m-3 4h3m-6-4h.01M9 16h.01">
+                                </path>
+                            </svg>
+                        </div>
+                        <h2 class="text-xl md:text-2xl font-bold text-slate-800 tracking-tight">Jenis Laporan</h2>
+                    </div>
+
+                    <div class="input-group">
+                        <label for="jenisLaporan" class="block text-sm font-bold text-slate-600 mb-2 ml-1">Pilih Jenis
+                            Laporan <span class="text-red-500">*</span></label>
+                        <select id="jenisLaporan" name="jenisLaporan" required
+                            class="w-full px-4 md:px-5 py-3 md:py-3.5 rounded-xl md:rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-500/10 outline-none input-field appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:20px] bg-[right_1.25rem_center] bg-no-repeat">
+                            <option value="">Pilih Jenis Laporan...</option>
+                            <option value="inspeksi">Inspeksi</option>
+                            <option value="preventif">Preventif</option>
+                        </select>
+                        <p id="mode-hint" class="text-[10px] md:text-xs text-slate-400 mt-2 ml-1">
+                            Pilih jenis laporan dulu untuk menampilkan kolom yang dibutuhkan.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Section 1: Data Verifikasi -->
+                <div data-section="informasi" class="section-card rounded-2xl md:rounded-3xl p-5 md:p-8">
                     <div class="flex items-center mb-6 md:mb-8">
                         <div
                             class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-indigo-600 flex items-center justify-center text-white mr-3 md:mr-4 shadow-lg shadow-indigo-200">
@@ -48,7 +77,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-5 md:gap-y-6">
-                        <div class="input-group">
+                        <div class="input-group" data-field="pemverifikasi">
                             <label for="pemverifikasi" class="block text-sm font-bold text-slate-600 mb-2 ml-1">Nama
                                 Pemverifikasi</label>
                             <select id="pemverifikasi" name="pemverifikasi" required
@@ -59,21 +88,21 @@
                             </select>
                         </div>
 
-                        <div class="input-group">
+                        <div class="input-group" data-field="kodeAsset">
                             <label for="kodeAsset" class="block text-sm font-bold text-slate-600 mb-2 ml-1">Kode
                                 Asset</label>
                             <input type="text" id="kodeAsset" name="kodeAsset" required placeholder="Contoh: PNS-PC-001"
                                 class="w-full px-4 md:px-5 py-3 md:py-3.5 rounded-xl md:rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-500/10 outline-none input-field">
                         </div>
 
-                        <div class="input-group">
+                        <div class="input-group" data-field="model">
                             <label for="model" class="block text-sm font-bold text-slate-600 mb-2 ml-1">Model / Merk &
                                 BIOS</label>
                             <input type="text" id="model" name="model" required placeholder="Contoh: ASUS / Tipe BIOS"
                                 class="w-full px-4 md:px-5 py-3 md:py-3.5 rounded-xl md:rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-500/10 outline-none input-field">
                         </div>
 
-                        <div class="input-group">
+                        <div class="input-group" data-field="namaUser">
                             <label for="namaUser" class="block text-sm font-bold text-slate-600 mb-2 ml-1">Nama User /
                                 Jabatan</label>
                             <input type="text" id="namaUser" name="namaUser" required
@@ -81,7 +110,7 @@
                                 class="w-full px-4 md:px-5 py-3 md:py-3.5 rounded-xl md:rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-500/10 outline-none input-field">
                         </div>
 
-                        <div class="md:col-span-2">
+                        <div class="md:col-span-2" data-field="lokasi">
                             <label for="lokasi" class="block text-sm font-bold text-slate-600 mb-2 ml-1">Lokasi</label>
                             <select id="lokasi" name="lokasi" required
                                 class="w-full px-4 md:px-5 py-3 md:py-3.5 rounded-xl md:rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-500/10 outline-none input-field appearance-none bg-[url('data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2224%22%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%2364748b%22%20stroke-width%3D%222%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E')] bg-[length:20px] bg-[right_1.25rem_center] bg-no-repeat">
@@ -97,7 +126,7 @@
                 </div>
 
                 <!-- Section 2: Spesifikasi -->
-                <div class="section-card rounded-2xl md:rounded-3xl p-5 md:p-8">
+                <div data-section="spesifikasi" class="section-card rounded-2xl md:rounded-3xl p-5 md:p-8">
                     <div class="flex items-center mb-6 md:mb-8">
                         <div
                             class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-emerald-600 flex items-center justify-center text-white mr-3 md:mr-4 shadow-lg shadow-emerald-200">
@@ -111,7 +140,7 @@
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-5 md:gap-6">
-                        <div class="input-group">
+                        <div class="input-group" data-field="processor">
                             <label for="processor"
                                 class="block text-sm font-bold text-slate-600 mb-2 ml-1">Processor</label>
                             <input type="text" id="processor" name="processor" required
@@ -119,20 +148,20 @@
                                 class="w-full px-4 md:px-5 py-3 md:py-3.5 rounded-xl md:rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-500/10 outline-none input-field">
                         </div>
 
-                        <div class="input-group">
+                        <div class="input-group" data-field="ram">
                             <label for="ram" class="block text-sm font-bold text-slate-600 mb-2 ml-1">RAM</label>
                             <input type="text" id="ram" name="ram" required placeholder="4GB DDR3"
                                 class="w-full px-4 md:px-5 py-3 md:py-3.5 rounded-xl md:rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-500/10 outline-none input-field">
                         </div>
 
-                        <div class="input-group">
+                        <div class="input-group" data-field="gpu">
                             <label for="gpu" class="block text-sm font-bold text-slate-600 mb-2 ml-1">Graphic
                                 Card</label>
                             <input type="text" id="gpu" name="gpu" required placeholder="RTX 4060 / Integrated"
                                 class="w-full px-4 md:px-5 py-3 md:py-3.5 rounded-xl md:rounded-2xl border border-slate-200 focus:ring-4 focus:ring-indigo-500/10 outline-none input-field">
                         </div>
 
-                        <div class="input-group">
+                        <div class="input-group" data-field="jenisStorage">
                             <label for="jenisStorage" class="block text-sm font-bold text-slate-600 mb-2 ml-1">Jenis
                                 Storage</label>
                             <select id="jenisStorage" name="jenisStorage" required
@@ -144,7 +173,7 @@
                             </select>
                         </div>
 
-                        <div class="sm:col-span-2 input-group">
+                        <div class="sm:col-span-2 input-group" data-field="kapasitas">
                             <label for="kapasitas" class="block text-sm font-bold text-slate-600 mb-2 ml-1">Kapasitas
                                 Storage</label>
                             <input type="text" id="kapasitas" name="kapasitas" required
@@ -155,7 +184,7 @@
                 </div>
 
                 <!-- Section 3: Lampiran -->
-                <div class="section-card rounded-2xl md:rounded-3xl p-5 md:p-8">
+                <div data-section="lampiran" class="section-card rounded-2xl md:rounded-3xl p-5 md:p-8">
                     <div class="flex items-center mb-6 md:mb-8">
                         <div
                             class="w-8 h-8 md:w-10 md:h-10 rounded-lg md:rounded-xl bg-pink-600 flex items-center justify-center text-white mr-3 md:mr-4 shadow-lg shadow-pink-200">
@@ -171,10 +200,10 @@
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8">
-                        <!-- Foto CPU-Z -->
-                        <div class="space-y-3">
-                            <label class="block text-sm font-bold text-slate-600 ml-1">Foto CPU-Z / HDD Sentinel <span
-                                    class="text-red-500">*</span></label>
+                        <!-- Foto CPU-Z / Foto Lampiran (label berubah sesuai jenis laporan) -->
+                        <div class="space-y-3" data-field="foto">
+                            <label class="block text-sm font-bold text-slate-600 ml-1"><span id="label-foto">Foto CPU-Z /
+                                    HDD Sentinel</span> <span class="text-red-500">*</span></label>
                             <div class="group relative flex flex-col items-center justify-center p-6 md:p-8 border-2 border-dashed border-slate-200 rounded-2xl md:rounded-3xl hover:border-indigo-400 hover:bg-indigo-50/30 transition-all cursor-pointer overflow-hidden"
                                 id="drop-zone-cpuz">
                                 <div
@@ -191,8 +220,13 @@
                                     <div>
                                         <p class="text-xs md:text-sm font-bold text-slate-700">Ambil/Upload Foto</p>
                                         <p class="text-[10px] md:text-xs text-slate-400">Kamera / Galeri • otomatis dikompres ±250 KB</p>
+                                        <p id="foto-multi-hint"
+                                            class="hidden text-[10px] md:text-xs font-semibold text-indigo-500 mt-1">
+                                            Bisa pilih beberapa foto sekaligus — otomatis dikompres & digabung jadi 1 lampiran
+                                        </p>
                                     </div>
                                 </div>
+                                <!-- `multiple` diaktifkan otomatis oleh app.js saat jenis laporan = Preventif -->
                                 <input id="fotoLampiran" name="foto" type="file" required
                                     class="absolute inset-0 opacity-0 cursor-pointer" accept="image/*">
                             </div>
@@ -211,11 +245,12 @@
                                     </button>
                                 </div>
                                 <p id="foto-info" class="text-[10px] md:text-xs font-semibold text-slate-500 ml-1"></p>
+                                <div id="preview-strip" class="hidden flex flex-wrap gap-2 ml-1"></div>
                             </div>
                         </div>
 
                         <!-- Foto Unit -->
-                        <div class="space-y-3">
+                        <div class="space-y-3" data-field="fotoUnit">
                             <label class="block text-sm font-bold text-slate-600 ml-1">Foto Unit PC/Laptop <span
                                     class="text-red-500">*</span></label>
                             <div class="group relative flex flex-col items-center justify-center p-6 md:p-8 border-2 border-dashed border-slate-200 rounded-2xl md:rounded-3xl hover:border-indigo-400 hover:bg-indigo-50/30 transition-all cursor-pointer overflow-hidden"
@@ -258,7 +293,7 @@
                         </div>
 
                         <!-- Keterangan -->
-                        <div class="md:col-span-2">
+                        <div class="md:col-span-2" data-field="keterangan">
                             <label for="keterangan" class="block text-sm font-bold text-slate-600 mb-2 ml-1">Keterangan
                                 Tambahan <span class="text-slate-400 font-normal">(Opsional)</span></label>
                             <textarea id="keterangan" name="keterangan" rows="4"
